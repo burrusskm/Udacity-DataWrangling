@@ -62,8 +62,8 @@ def audit_postalcode(postalcode, value):
 # postcode = ''.join(ele for ele in postcode if ele.isdigit())
 
 # evaluate and return unexpected street names
-def audit(OSMFILE):
-    osm_file = open(osmfile, "r")
+def audit():
+    osm_file = open(OSMFILE, "r")
     postalcodes = set()
     for event, elem in ET.iterparse(osm_file, events=("start",)):
         if elem.tag == "node" or elem.tag == "way":
@@ -77,8 +77,7 @@ def audit(OSMFILE):
 
             return postalcodes, street_types
 
-postalcodes = audit(OSMFILE)
-street_types = audit(OSMFILE)
+
 pprint.pprint(dict(street_types))
 pprint.pprint(postalcodes)
 
