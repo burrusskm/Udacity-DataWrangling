@@ -13,7 +13,6 @@ problemchars = re.compile(r'[=\+/&<>;\'"\?%#$@\,\. \t\r\n]')
 # evaluates and matches the last word in a street name
 street_type_re = re.compile(r'\b\S+\.?$', re.IGNORECASE)
 # Checks for 5 or 9 digit postal codes, and that first digit is 8
-postalcode_re = re.compile(r'^[8]\d{4}(?:[-\s]\d{4})?$')
 postalcode_re = re.compile(r'^8\d{4}-?(\d{4})?$')
 
 street_types = defaultdict(set)

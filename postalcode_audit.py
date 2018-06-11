@@ -1,6 +1,6 @@
 OSMFILE = "SLC_map.osm"
 
-postalcode_re = re.compile(r'^8(\d{4}|\d{8})$)
+postalcode_re = re.compile(r'^8\d{4}-?(\d{4})?$')
 
 def is_postalcode(elem):
     """Check if elem is postcode"""
