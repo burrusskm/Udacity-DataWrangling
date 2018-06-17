@@ -2,6 +2,17 @@ OSMFILE = "SLC_map.osm"
 
 postalcode_re = re.compile(r'^8\d{4}-?(\d{4})?$')
 
+problematics = ()
+
+for value in postalcodes:
+    value = value.replace('-', '')
+    m = postalcode_re.search(value)
+    if m:
+        return(value)
+    else:
+        problematics.append(value)
+    # am I to be adding to the problematics list here?
+
 def is_postalcode(elem):
     """Check if elem is postcode"""
     return (elem.attrib['k'] == "addr:postcode" or elem.attrib['k'] == "postal_code")
@@ -10,6 +21,7 @@ def audit_postalcode(postalcodes,value):
     """Audit the format of value and return unexpecteed value"""
     m = postalcode_re.search(value)
     if not m: #if the value is not a postcode
+    # is this where I would add to the problematics list?
         postalcodes.add(value)
 
 def audit(osmfile):
