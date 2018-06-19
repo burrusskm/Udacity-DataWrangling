@@ -1,8 +1,19 @@
+import xml.etree.cElementTree as ET
+import pprint
+import os
+import re
+from collections import defaultdict
+import pprint
+
+# list for any issues found in the data
+problematics = []
+
+# OpenStreetMaps file
 OSMFILE = "SLC_map.osm"
 
+#regex to check the formatting of postal codes
 postalcode_re = re.compile(r'^8\d{4}-?(\d{4})?$')
 
-problematics = ()
 
 for value in postalcodes:
     value = value.replace('-', '')
