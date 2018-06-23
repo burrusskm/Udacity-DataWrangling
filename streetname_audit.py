@@ -1,8 +1,14 @@
+import xml.etree.cElementTree as ET
+import pprint
+import os
+import re
+from collections import defaultdict
+import pprint
+
 OSMFILE = "SLC_map.osm"
 
 # evaluates and matches the last word in the street name
 street_type_re = re.compile(r'\b\S+\.?$', re.IGNORECASE)
-zip_code_re = re.compile(r'^\d{5}(?:[-\s]\d{4})?$')
 
 expected = ["Street", "Avenue", "Boulevard", "Drive", "Court", "Circle", "Place", "Square", "Lane", "Road",
             "Trail", "Parkway", "Commons", "North", "East", "South", "West", "Temple", "Way", "Terrace"]
