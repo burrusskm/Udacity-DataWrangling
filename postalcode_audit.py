@@ -5,24 +5,11 @@ import re
 from collections import defaultdict
 import pprint
 
-# list for any issues found in the data
-problematics = []
-
 # OpenStreetMaps file
 OSMFILE = "SLC_map.osm"
 
 #regex to check the formatting of postal codes
 postalcode_re = re.compile(r'^8\d{4}-?(\d{4})?$')
-
-
-for value in postalcodes:
-    value = value.replace('-', '')
-    m = postalcode_re.search(value)
-    if m:
-        return(value)
-    else:
-        problematics.append(value)
-    # am I to be adding to the problematics list here?
 
 def is_postalcode(elem):
     """Check if elem is postcode"""
